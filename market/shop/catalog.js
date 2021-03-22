@@ -87,11 +87,13 @@ const catalog = (function () {
         },
 
         removeProductFromCatalog(productName) {
-            let productIndex = 0;
-           
-            products.map((product, index) => product.name === productName ? productIndex = index : null);
-            this.getCatalog().splice(productIndex, 1);
-            console.log(`we have removed product with index ${productIndex} from catalog`);
+            let productIndex = products.findIndex(product => product.name === productName);
+            if (productIndex !== -1) {
+                this.getCatalog().splice(productIndex, 1);
+                console.log(`We have removed product with index ${productIndex} from catalog`);
+            } else {
+                console.log(`No such product in catalog`);cd 
+            }
         },
 
         addDiscount(productName, discount) {
