@@ -15,7 +15,7 @@ class Trader {
     }
 
     getProduct(options) {
-        return catalog.getProductByProperty(options);
+        return catalog.getProductsByProperty(options);
     }
 
     addDicount(productName, discount) {

@@ -53,7 +53,7 @@ const catalog = (function () {
             products.push(product);
         },
 
-        getProductByProperty(...options) {
+        getProductsByProperty(...options) {
             let filteredProducts = [];
             
             filteredProducts = products.filter((product) => {
@@ -65,7 +65,7 @@ const catalog = (function () {
 
         sellProduct(productName) {
             // we are assume that product name is unique like vendor id
-            const currentProduct = this.getProductByProperty(productName)[0];
+            const currentProduct = this.getProductsByProperty(productName)[0];
             let currentPrice = currentProduct.price;
             let currentCount = currentProduct.count;
             console.log(`count untill selling: ${currentCount}`);
@@ -95,7 +95,7 @@ const catalog = (function () {
         },
 
         addDiscount(productName, discount) {
-            const currentProduct = this.getProductByProperty(productName)[0];
+            const currentProduct = this.getProductsByProperty(productName)[0];
             currentProduct.isDiscount = true;
             currentProduct.discount = discount;
         }

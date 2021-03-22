@@ -11,7 +11,7 @@ class Customer {
     }
 
     getProduct(options) {
-        return catalog.getProductByProperty(options);
+        return catalog.getProductsByProperty(options);
     }
 
     buyProduct(product) {
