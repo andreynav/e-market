@@ -72,6 +72,8 @@ const catalog = (function () {
             console.log(`cashbox untill selling: ${cashbox.getCashbox()}`);
 
             if (currentCount > 0) {
+
+                
                 currentProduct.count--;
                 cashbox.addToCashbox(currentPrice);
                 console.log(`count after selling: ${currentProduct.count}`);

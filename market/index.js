@@ -83,9 +83,11 @@ console.log(`===== CUSTOMER GET PRODUCT BY EXISTING PROPERTY 'electronics' || SH
 let electronics1 = customer.getProduct('electronics');
 console.log(electronics1);
 
-console.log(`===== CUSTOMER BUY PRODUCT 'radio1' || SHOULD BE COUNT 1 FOR 'radio1' =====`);
+console.log(`===== CUSTOMER BUY PRODUCT 'radio1' || SHOULD BE COUNT 2 FOR 'radio1' =====`);
 trader.sellProduct('radio1');
 
+console.log(`===== TRADER SOLD PRODUCT 'radio1' || SHOULD BE COUNT 1 FOR 'radio1' =====`);
+trader.sellProduct('radio1');
 
 
 
