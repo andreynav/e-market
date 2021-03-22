@@ -57,7 +57,7 @@ const catalog = (function () {
             let filteredProducts = [];
             
             filteredProducts = products.filter((product) => {
-                let productValues = Object.values(product);
+                const productValues = Object.values(product);
                 return options.every(optionItem => productValues.includes(optionItem));
             });
             return filteredProducts.length !== 0 ? filteredProducts : 'Product not found';
