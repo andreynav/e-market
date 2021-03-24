@@ -1,4 +1,4 @@
-const { cashbox } = require('./cashbox')
+const { cashbox } = require('./cashbox');
 
 const catalog = (function () {
     const products = [
@@ -50,12 +50,17 @@ const catalog = (function () {
         },
 
         addProductToCatalog(product) {
-            products.push(product);
+            if (typeof product == 'object') {
+                products.push(product);
+            } else {
+                //console.log('Not a product');
+                return 'Not a product';
+            }
         },
 
         getProductsByProperty(...options) {
             let filteredProducts = [];
-            
+
             filteredProducts = products.filter((product) => {
                 const productValues = Object.values(product);
                 return options.every(optionItem => productValues.includes(optionItem));
@@ -73,7 +78,7 @@ const catalog = (function () {
 
             if (currentCount > 0) {
 
-                
+
                 currentProduct.count--;
                 cashbox.addToCashbox(currentPrice);
                 console.log(`count after selling: ${currentProduct.count}`);
@@ -94,7 +99,7 @@ const catalog = (function () {
                 this.getCatalog().splice(productIndex, 1);
                 console.log(`We have removed product with index ${productIndex} from catalog`);
             } else {
-                console.log(`No such product in catalog`);cd 
+                console.log(`No such product in catalog`); cd
             }
         },
 

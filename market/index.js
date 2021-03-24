@@ -89,5 +89,6 @@ trader.sellProduct('radio1');
 console.log(`===== TRADER SOLD PRODUCT 'radio1' || SHOULD BE COUNT 1 FOR 'radio1' =====`);
 trader.sellProduct('radio1');
 
+trader.addProduct('text');
 
 
