@@ -1,4 +1,4 @@
-const { catalog } = require('./catalog');
+const { catalog } = require('./index');
 
 describe('Catalog file', () => {
     let initialCatalog;

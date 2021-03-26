@@ -5,8 +5,18 @@ const cashbox = (function() {
         getCashbox: function() {
             return cashboxSum;
         },
+
         addToCashbox: function(val) {
-            return cashboxSum += val;
+            if (val) {
+                if (typeof val ===  'number') {
+                    return cashboxSum += val;
+                } else {
+                    return 'Value is not a number';
+                }
+            } else {
+                return 'Value should not be empty';
+            }
+            
         }
     }
 })();
