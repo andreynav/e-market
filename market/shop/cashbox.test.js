@@ -18,7 +18,6 @@ describe('Cashbox file', () => {
 
 
         test('should working on with type number', () => {
-            expect(cashbox.addToCashbox(10)).toEqual(20);
             expect(cashbox.addToCashbox('string')).toBe('Value is not a number');
             expect(cashbox.addToCashbox({obj: 10})).toBe('Value is not a number');
         });
