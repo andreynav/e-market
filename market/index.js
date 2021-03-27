@@ -46,7 +46,7 @@ console.log(`===== GET CATALOG AFTER PRODUCT WAS ADDED || SHOULD BE 5 ITEMS ====
 console.log(catalog.getCatalog());
 
 console.log(`===== TRADER ADD DISCOUNT TO PRODUCT =====`);
-trader.addDicount('radio', 10);
+trader.addDiscount('radio', 10);
 
 console.log(`===== GET CATALOG AFTER TRADER ADD DISCOUNT TO PRODUCT || SHOULD BE DISCOUNT 10 FOR 'radio' =====`);
 console.log(catalog.getCatalog());
