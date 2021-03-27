@@ -63,4 +63,24 @@ describe('Catalog file', () => {
             expect(catalog.addProductToCatalog()).toBe('Not a product');
         });
     });
+
+    describe('GetProductsByProperty function', () => {
+        
+        test('should find products by multiple options', () => {
+
+        });
+
+        test('should find products by single option', () => {
+
+        });
+
+        test('should not find products by not existing option', () => {
+
+        });
+
+        test('should not find products by empty value', () => {
+
+        });
+    });
+
 });

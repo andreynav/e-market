@@ -77,8 +77,6 @@ const catalog = (function () {
             console.log(`cashbox untill selling: ${cashbox.getCashbox()}`);
 
             if (currentCount > 0) {
-
-
                 currentProduct.count--;
                 cashbox.addToCashbox(currentPrice);
                 console.log(`count after selling: ${currentProduct.count}`);
@@ -99,7 +97,7 @@ const catalog = (function () {
                 this.getCatalog().splice(productIndex, 1);
                 console.log(`We have removed product with index ${productIndex} from catalog`);
             } else {
-                console.log(`No such product in catalog`); cd
+                console.log(`No such product in catalog`);
             }
         },
 
