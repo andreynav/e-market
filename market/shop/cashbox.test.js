@@ -21,5 +21,6 @@ describe('Cashbox file', () => {
             expect(cashbox.addToCashbox('string')).toBe('Value is not a number');
             expect(cashbox.addToCashbox({obj: 10})).toBe('Value is not a number');
         });
+
     });
 });

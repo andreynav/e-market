@@ -53,52 +53,66 @@ const catalog = (function () {
             if (typeof product == 'object') {
                 products.push(product);
             } else {
-                //console.log('Not a product');
+
                 return 'Not a product';
             }
         },
 
         getProductsByProperty(...options) {
-            let filteredProducts = [];
+            if (options.length !== 0) {
+                let filteredProducts = [];
 
-            filteredProducts = products.filter((product) => {
-                const productValues = Object.values(product);
-                return options.every(optionItem => productValues.includes(optionItem));
-            });
-            return filteredProducts.length !== 0 ? filteredProducts : 'Product not found';
+                filteredProducts = products.filter((product) => {
+                    const productValues = Object.values(product);
+                    return options.every(optionItem => productValues.includes(optionItem));
+                });
+                return filteredProducts.length !== 0 ? filteredProducts : 'Product not found';
+            } else {
+                return 'Product option(s) should not be empty';
+            }
+
         },
 
         sellProduct(productName) {
-            // we are assume that product name is unique like vendor id
-            const currentProduct = this.getProductsByProperty(productName)[0];
-            let currentPrice = currentProduct.price;
-            let currentCount = currentProduct.count;
-            console.log(`count untill selling: ${currentCount}`);
-            console.log(`cashbox untill selling: ${cashbox.getCashbox()}`);
+            if (productName) {
+                // we are assume that product name is unique like vendor id
+                const currentProduct = this.getProductsByProperty(productName)[0];
+                let currentPrice = currentProduct.price;
+                let currentCount = currentProduct.count;
+                //console.log(`count untill selling: ${currentCount}`);
+                //console.log(`cashbox untill selling: ${cashbox.getCashbox()}`);
 
-            if (currentCount > 0) {
-                currentProduct.count--;
-                cashbox.addToCashbox(currentPrice);
-                console.log(`count after selling: ${currentProduct.count}`);
-                console.log(`cashbox after selling: ${cashbox.getCashbox()}`);
-            } else {
-                try {
-                    this.removeProductFromCatalog(productName);
-                    console.log(`Product was removed from catalog`);
-                } catch (err) {
-                    console.error('Product not exists');
+                if (currentCount > 0) {
+                    currentProduct.count--;
+                    cashbox.addToCashbox(currentPrice);
+                    //console.log(`count after selling: ${currentProduct.count}`);
+                    //console.log(`cashbox after selling: ${cashbox.getCashbox()}`);
+                } else {
+                    try {
+                        this.removeProductFromCatalog(productName);
+                        //console.log(`Product was removed from catalog`);
+                    } catch (err) {
+                        console.error('Product not exists');
+                    }
                 }
+            } else {
+                return 'Product name should not be empty';
             }
+
         },
 
         removeProductFromCatalog(productName) {
-            let productIndex = products.findIndex(product => product.name === productName);
-            if (productIndex !== -1) {
-                this.getCatalog().splice(productIndex, 1);
-                console.log(`We have removed product with index ${productIndex} from catalog`);
+            if (productName) {
+                let productIndex = products.findIndex(product => product.name === productName);
+                if (productIndex !== -1) {
+                    this.getCatalog().splice(productIndex, 1);
+                } else {
+                    return 'No such product in catalog';
+                }
             } else {
-                console.log(`No such product in catalog`);
+                return 'Product name should not be empty';
             }
+
         },
 
         addDiscount(productName, discount) {
