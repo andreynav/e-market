@@ -62,10 +62,9 @@ class Product {
                     product[property] = this[property];
                 }     	
             });
-            console.log(`Product has created.`);
             return product;
         } else {
-            return console.log(`Mandatory fields have not filled. Product hasn't created.`);
+            return `Mandatory fields have not filled. Product hasn't created.`;
         }
     }
 }
